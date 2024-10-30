@@ -1,6 +1,5 @@
-// Route.ts - tells Nextjs to render a url that doesn't return a React Server Comp
+// Route.ts - tells Nextjs to render a url that doesn't return a React Server Component
 // but typically JSON or text. Works like an API endpoint in Express
-// Must be .ts not tsx
 // Backend endpoint that creates a Checkout session with priceId
 
 import { NextResponse } from "next/server";

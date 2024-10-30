@@ -15,14 +15,23 @@ export default function CheckoutButton() {
 
         const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
         const stripe = await stripePromise;
-        const response = await fetch('/api/checkout'. {
+        const response = await fetch('/api/checkout', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ prideId: '', userId: data.user?.id, email: data.user?.email }),
+            body: JSON.stringify({ priceId: 'price_1Q3UMgHHxosx5eaLBLMokL6T', userId: data.user?.id, email: data.user?.email }),
         });
-
-        
+    const session = await response.json();
+    console.log("The session: ", session);
+    await stripe?.redirectToCheckout({ sessionId: session.id });
     }
+
+    return (
+        <div>
+            <h1>Signup for a Plan</h1>
+            <p>Clicking this button creates a new Stripe Checkout session</p>
+            <button className="btn btn-accent" onClick={handleCheckout}>Buy Now</button>
+        </div>
+    );
 }
