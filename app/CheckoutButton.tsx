@@ -20,7 +20,7 @@ export default function CheckoutButton() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({ priceId: 'price_1Q3UMgHHxosx5eaLBLMokL6T', userId: data.user?.id, email: data.user?.email }),
+            body: JSON.stringify({ priceId: 'price_1Q7m1ZHHxosx5eaLK6onqieG', userId: data.user?.id, email: data.user?.email }),
         });
     const session = await response.json();
     console.log("The session: ", session);

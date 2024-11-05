@@ -20,12 +20,13 @@ export async function POST(request: Request) {
                 {
                     // base subscription
                     price: priceId,
-                },
-                {
-                    // one time setup fee
-                    price: priceId,
                     quantity: 1,
                 },
+                // {
+                //     // one time setup fee
+                //     price: priceId,
+                //     quantity: 1,
+                // },
             ],
             mode: 'subscription',
             success_url: `${request.headers.get('origin')}/success`,
